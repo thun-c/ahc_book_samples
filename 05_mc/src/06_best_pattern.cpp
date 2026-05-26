@@ -50,7 +50,7 @@ void input()
 // 解を出力する
 void output(int action)
 {
-    cout << dirs[action] << '\n';
+    cout << dirs[action] << endl;
 }
 
 class State

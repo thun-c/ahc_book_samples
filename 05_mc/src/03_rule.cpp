@@ -27,7 +27,7 @@ void input()
 // 解を出力する
 void output(int action)
 {
-    cout << dirs[action] << '\n';
+    cout << dirs[action] << endl;
 }
 
 // ターンごとの固定ルールで方向を決めて出力する
