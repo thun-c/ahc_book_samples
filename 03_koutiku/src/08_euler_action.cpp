@@ -1225,11 +1225,11 @@ BeamSearchUser beam_search;
 // 解を出力する
 void output(const vector<Action>& answer)
 {
-    cout << answer.size() << "\n";
+    cout << answer.size() << endl;
     for (Action action : answer)
     {
         cout << static_cast<int>(action.x1) << " " << static_cast<int>(action.y1) << " "
-             << static_cast<int>(action.x2) << " " << static_cast<int>(action.y2) << "\n";
+             << static_cast<int>(action.x2) << " " << static_cast<int>(action.y2) << endl;
     }
 }
 

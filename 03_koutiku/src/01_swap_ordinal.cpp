@@ -98,10 +98,10 @@ std::vector<Action> solve(const State& state)
 // 解を出力する
 void output(const vector<Action>& answer)
 {
-    cout << answer.size() << "\n";
+    cout << answer.size() << endl;
     for (Action action : answer)
     {
-        cout << action.x1 << " " << action.y1 << " " << action.x2 << " " << action.y2 << "\n";
+        cout << action.x1 << " " << action.y1 << " " << action.x2 << " " << action.y2 << endl;
     }
 }
 

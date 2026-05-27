@@ -1232,11 +1232,11 @@ BeamSearchUser beam_search;
 // 解を出力する
 void output(const vector<Action>& answer)
 {
-    cout << answer.size() << "\n";
+    cout << answer.size() << endl;
     for (Action action : answer)
     {
         auto [x1, y1, x2, y2] = action.decode();
-        cout << x1 << " " << y1 << " " << x2 << " " << y2 << "\n";
+        cout << x1 << " " << y1 << " " << x2 << " " << y2 << endl;
     }
 }
 
