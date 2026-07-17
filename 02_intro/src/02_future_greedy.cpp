@@ -25,7 +25,6 @@ constexpr const int64_t INF = 1000000000LL; // あり得ないぐらい大きな
 // コンテストが開催されなかった期間の満足度減少の係数を計算する
 inline int dayCumsum(const int last_day, const int now_day)
 {
-    int elapsed = now_day - last_day;
     int sum = 0;
     for (int d = last_day + 1; d <= now_day - 1; d++)
     {
