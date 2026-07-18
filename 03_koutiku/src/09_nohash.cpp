@@ -1018,7 +1018,7 @@ inline int getPyramidIndex(int x, int y)
 
 using Hash = uint64_t;
 // using Hash = uint32_t;
-mt19937 rng(0);
+mt19937_64 rng(0);
 
 vector<vector<int>> b;
 array<Hash, ALL_BALL_SIZE> index_hash;
