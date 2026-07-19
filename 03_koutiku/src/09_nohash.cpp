@@ -1115,7 +1115,7 @@ public:
         auto new_target_ball = this->target_ball_;
         auto new_p = this->p_;
         auto new_hash = this->hash_;
-        auto new_score = TARGET_COEFFICIENT * target_ball_ + p_;
+        auto new_score = TARGET_COEFFICIENT * new_target_ball + new_p;
         bool finished = (new_target_ball == ALL_BALL_SIZE);
         advanceBackward(new_action);
 
