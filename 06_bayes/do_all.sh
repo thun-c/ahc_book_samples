@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # コマンドライン引数で与えたコードをコンパイルして実行ファイルa.outを作成
-g++ -std=c++20 -O2 -o "a.out" "src/$1" -Isrc
+g++ -std=gnu++23 -O2 -o "a.out" "src/$1" -Isrc
 
 # 公式ツールのディレクトリに移動
 cd "tools"
