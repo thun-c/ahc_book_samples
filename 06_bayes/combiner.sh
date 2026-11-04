@@ -167,7 +167,19 @@ expand_file() {
   INCLUDE_STACK+=("$file_path")
 
   local line
+  local in_license=0
   while IFS= read -r line || [[ -n "$line" ]]; do
+    # ライセンス表記は出力先頭に1回だけ出すため、各ファイルのものは読み飛ばす。
+    if [[ "$line" == "$LICENSE_BEGIN" ]]; then
+      in_license=1
+      continue
+    fi
+    if ((in_license == 1)); then
+      if [[ "$line" == "$LICENSE_END" ]]; then
+        in_license=0
+      fi
+      continue
+    fi
     if [[ "$line" =~ ^[[:space:]]*#include[[:space:]]*\"([^\"]+)\"[[:space:]]*(//.*)?$ ]]; then
       local include_target="${BASH_REMATCH[1]}"
       local resolved_path
@@ -234,7 +246,11 @@ if command -v realpath >/dev/null 2>&1; then
   fi
 fi
 
-printf '// メインソース: %s\n' "$DISPLAY_SOURCE" > "$TEMP_OUTPUT"
+# メインソースのライセンス表記を出力先頭に置く。
+LICENSE_BEGIN='// ==== LICENSE BEGIN ===='
+LICENSE_END='// ==== LICENSE END ===='
+sed -n "\|^${LICENSE_BEGIN}\$|,\|^${LICENSE_END}\$|p" "$SOURCE_FILE" > "$TEMP_OUTPUT"
+printf '// メインソース: %s\n' "$DISPLAY_SOURCE" >> "$TEMP_OUTPUT"
 expand_file "$SOURCE_FILE"
 
 mkdir -p "$(dirname "$OUTPUT_FILE")"
